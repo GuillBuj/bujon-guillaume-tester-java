@@ -1,12 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.parkit.parkingsystem.FareCalculatorServiceTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.049 s <<< FAILURE! - in com.parkit.parkingsystem.FareCalculatorServiceTest
-calculateFareBikeWithDiscountDescription  Time elapsed: 0.002 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <1.0> but was: <0.95>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareBikeWithDiscountDescription(FareCalculatorServiceTest.java:181)
-
-calculateFareCarWithDiscountDescription  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <149.93> but was: <1.42>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithDiscountDescription(FareCalculatorServiceTest.java:167)
+Tests run: 11, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.098 s <<< FAILURE! - in com.parkit.parkingsystem.FareCalculatorServiceTest
+calculateFareCarWithDiscountDescription  Time elapsed: 0.029 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1.43> but was: <1.42>
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithDiscountDescription(FareCalculatorServiceTest.java:170)
 
