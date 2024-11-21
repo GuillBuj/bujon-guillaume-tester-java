@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: com.parkit.parkingsystem.FareCalculatorServiceTest
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in com.parkit.parkingsystem.FareCalculatorServiceTest
+Tests run: 10, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.06 s <<< FAILURE! - in com.parkit.parkingsystem.FareCalculatorServiceTest
+calculateFareCarWithDiscountDescription  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+	The method calculateFare(Ticket) in the type FareCalculatorService is not applicable for the arguments (Ticket, boolean)
+
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithDiscountDescription(FareCalculatorServiceTest.java:166)
+
