@@ -138,4 +138,18 @@ public class FareCalculatorServiceTest {
         fareCalculatorService.calculateFare(ticket);
         assertEquals(0, ticket.getPrice());
     }
+
+    @Test
+    public void calculateFareBikeWithLessThan30MinutesParkingTime(){
+        Date inTime = new Date();
+        inTime.setTime(System.currentTimeMillis()-(15*60*1000));//15 minutes parking time should give 0
+        Date outTime = new Date();
+        ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE, false);
+
+        ticket.setInTime(inTime);
+        ticket.setOutTime(outTime);
+        ticket.setParkingSpot(parkingSpot);
+        fareCalculatorService.calculateFare(ticket);
+        assertEquals(0, ticket.getPrice());
+    }
 }
