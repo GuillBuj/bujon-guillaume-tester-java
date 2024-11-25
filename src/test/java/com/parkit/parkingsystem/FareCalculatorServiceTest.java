@@ -1,5 +1,7 @@
 package com.parkit.parkingsystem;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -95,7 +97,8 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
-        assertEquals((0.75 * Fare.BIKE_RATE_PER_HOUR), ticket.getPrice());
+        BigDecimal priceBigDecimal = BigDecimal.valueOf(0.75 * Fare.BIKE_RATE_PER_HOUR).setScale(2,RoundingMode.HALF_DOWN);
+        assertEquals(priceBigDecimal, BigDecimal.valueOf(ticket.getPrice()));
     }
 
     @Test
@@ -110,7 +113,8 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
-        assertEquals(Math.round((0.75 * Fare.CAR_RATE_PER_HOUR) * 100.0) / 100.0, ticket.getPrice());
+        BigDecimal priceBigDecimal = BigDecimal.valueOf(0.75 * Fare.CAR_RATE_PER_HOUR).setScale(2,RoundingMode.HALF_DOWN);
+        assertEquals(priceBigDecimal, BigDecimal.valueOf(ticket.getPrice()));
     }
 
     @Test
@@ -167,8 +171,8 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket, true);
-        assertEquals(Math.round(Fare.CAR_RATE_PER_HOUR * (100 - Fare.DISCOUNT_PCT)) / 100.0,
-                ticket.getPrice());
+        BigDecimal priceBigDecimal = BigDecimal.valueOf(((Fare.CAR_RATE_PER_HOUR * (100 - Fare.DISCOUNT_PCT))/100)).setScale(2,RoundingMode.HALF_DOWN);
+        assertEquals(priceBigDecimal, BigDecimal.valueOf(ticket.getPrice()));
     }
 
     @Test
@@ -182,7 +186,7 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket, true);
-        assertEquals(Math.round(Fare.BIKE_RATE_PER_HOUR * (100 - Fare.DISCOUNT_PCT)) / 100.0,
-                ticket.getPrice());
+        BigDecimal priceBigDecimal = BigDecimal.valueOf(((Fare.BIKE_RATE_PER_HOUR * (100 - Fare.DISCOUNT_PCT))/100)).setScale(2,RoundingMode.HALF_DOWN);
+        assertEquals(priceBigDecimal, BigDecimal.valueOf(ticket.getPrice()));
     }
 }
