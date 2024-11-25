@@ -1,17 +1,19 @@
 package com.parkit.parkingsystem.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.parkit.parkingsystem.config.DataBaseConfig;
 import com.parkit.parkingsystem.constants.DBConstants;
 import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
 
 public class TicketDAO {
 
@@ -85,5 +87,22 @@ public class TicketDAO {
             dataBaseConfig.closeConnection(con);
         }
         return false;
+    }
+
+    public int getNbTicket(String vehicleRegNumber){
+        int nb=0;
+
+        try (Connection con = dataBaseConfig.getConnection()) {
+                PreparedStatement ps = con.prepareStatement(DBConstants.GET_NB_TICKET);
+                ps.setString(1, vehicleRegNumber);
+                try (ResultSet rs=ps.executeQuery()){   //verif si il y a une ligne
+                    if (rs.next())
+                        {nb=rs.getInt(1);}
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                logger.error("Error fetching ticket count for vehicle " + vehicleRegNumber, ex);
+            }
+            
+        return nb;
     }
 }
