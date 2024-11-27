@@ -17,7 +17,7 @@ import com.parkit.parkingsystem.model.Ticket;
 
 <span class="fc bfc" id="L18" title="All 2 branches covered.">        if(durationH &lt; 0.5){              //gratuit pour moins de 30 minutes</span>
 <span class="fc" id="L19">            ticket.setPrice(0);</span>
-        } else{
+<span class="fc" id="L20">        } else{</span>
 <span class="fc bfc" id="L21" title="All 2 branches covered.">            double rate = discount ? (100-Fare.DISCOUNT_PCT)/100 : 1;</span>
 <span class="pc bpc" id="L22" title="1 of 3 branches missed.">            switch (ticket.getParkingSpot().getParkingType()){</span>
                 case CAR: {
