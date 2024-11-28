@@ -2,11 +2,15 @@ package com.parkit.parkingsystem;
 
 import java.util.Date;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import org.mockito.Mock;
@@ -59,6 +63,36 @@ public class ParkingServiceTest {
     }
 
     @Test
+    public void testProcessIncomingVehicle(){
+        ArgumentCaptor<ParkingSpot> parkingSpotCaptor = ArgumentCaptor.forClass(ParkingSpot.class);
+        ArgumentCaptor<Ticket> ticketCaptor = ArgumentCaptor.forClass(Ticket.class);
+
+        ParkingSpot availableParkingSpot = new ParkingSpot(2,ParkingType.CAR,true);
+        
+        when(parkingService.getNextParkingNumberIfAvailable()).thenReturn(availableParkingSpot);
+        when(inputReaderUtil.readSelection()).thenReturn(1);
+
+        when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+
+        parkingService.processIncomingVehicle();
+
+        verify(parkingSpotDAO, times(1)).updateParking(any(ParkingSpot.class));
+        verify(ticketDAO, times(1)).saveTicket(any(Ticket.class));
+        verify(ticketDAO, times(1)).getNbTicket("ABCDEF");
+    
+        ParkingSpot parkingSpot = parkingSpotCaptor.getValue();
+        assertNotNull(parkingSpot, "Le parkingSpot ne doit pas être null");
+        assertFalse(parkingSpot.isAvailable(), "La place ne doit plus être disponible");
+    
+        Ticket ticket = ticketCaptor.getValue();
+        assertNotNull(ticket, "Le ticket ne doit pas être null");
+        assertEquals("ABCDEF", ticket.getVehicleRegNumber(), "Le numéro du véhicule doit correspondre");
+        assertEquals(0, ticket.getPrice(), 0, "Le prix doit être initialisé à 0");
+        assertNotNull(ticket.getInTime(), "L'heure d'entrée doit être définie");
+        assertNull(ticket.getOutTime(), "L'heure de sortie doit être null");
+    }
+
+    @Test
     public void processExitingVehicleTest(){
         when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(0);
 
@@ -71,8 +105,8 @@ public class ParkingServiceTest {
         verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
     
         Ticket ticket = ticketDAO.getTicket("ABCDEF");
-        assertNotNull(ticket.getOutTime()); //vérifie que la date de sortie a été définie
-        assertTrue(ticket.getPrice()>0);
+        assertNotNull(ticket.getOutTime(), "La date de sortie doit avoir été définie");
+        assertTrue(ticket.getPrice()>0, "Le prix ne doit plus être de 0");
     }
 
 }
