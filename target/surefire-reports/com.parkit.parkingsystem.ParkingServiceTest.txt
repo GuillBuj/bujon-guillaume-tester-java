@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.parkit.parkingsystem.ParkingServiceTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.101 s <<< FAILURE! - in com.parkit.parkingsystem.ParkingServiceTest
-testProcessIncomingVehicle  Time elapsed: 0.016 s  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.23 s <<< FAILURE! - in com.parkit.parkingsystem.ParkingServiceTest
+testProcessIncomingVehicle  Time elapsed: 0.091 s  <<< ERROR!
 org.mockito.exceptions.misusing.WrongTypeOfReturnValue: 
 
 ParkingSpot cannot be returned by readSelection()
