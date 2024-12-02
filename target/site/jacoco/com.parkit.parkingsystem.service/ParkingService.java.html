@@ -74,11 +74,11 @@ public class ParkingService {
             }else{
 <span class="fc" id="L75">                throw new Exception(&quot;Error fetching parking number from DB. Parking slots might be full&quot;);</span>
             }
-<span class="nc" id="L77">        }catch(IllegalArgumentException ie){</span>
-<span class="nc" id="L78">            logger.error(&quot;Error parsing user input for type of vehicle&quot;, ie);</span>
+<span class="fc" id="L77">        }catch(IllegalArgumentException ie){</span>
+<span class="fc" id="L78">            logger.error(&quot;Error parsing user input for type of vehicle&quot;, ie);</span>
 <span class="fc" id="L79">        }catch(Exception e){</span>
 <span class="fc" id="L80">            logger.error(&quot;Error fetching next available parking slot&quot;, e);</span>
-<span class="pc" id="L81">        }</span>
+<span class="fc" id="L81">        }</span>
 <span class="fc" id="L82">        return parkingSpot;</span>
     }
 
@@ -87,7 +87,7 @@ public class ParkingService {
 <span class="fc" id="L87">        System.out.println(&quot;1 CAR&quot;);</span>
 <span class="fc" id="L88">        System.out.println(&quot;2 BIKE&quot;);</span>
 <span class="fc" id="L89">        int input = inputReaderUtil.readSelection();</span>
-<span class="pc bpc" id="L90" title="2 of 3 branches missed.">        switch(input){</span>
+<span class="pc bpc" id="L90" title="1 of 3 branches missed.">        switch(input){</span>
             case 1: {
 <span class="fc" id="L92">                return ParkingType.CAR;</span>
             }
@@ -95,8 +95,8 @@ public class ParkingService {
 <span class="nc" id="L95">                return ParkingType.BIKE;</span>
             }
             default: {
-<span class="nc" id="L98">                System.out.println(&quot;Incorrect input provided&quot;);</span>
-<span class="nc" id="L99">                throw new IllegalArgumentException(&quot;Entered input is invalid&quot;);</span>
+<span class="fc" id="L98">                System.out.println(&quot;Incorrect input provided&quot;);</span>
+<span class="fc" id="L99">                throw new IllegalArgumentException(&quot;Entered input is invalid&quot;);</span>
             }
         }
     }

@@ -122,6 +122,20 @@ public class ParkingServiceTest {
         assertNull(availableParkingSpot);
     }
 
+    // testGetNextParkingNumberIfAvailableParkingNumberWrongArgument :
+    // test de l’appel de la méthode getNextParkingNumberIfAvailable()
+    // avec pour résultat aucun spot (la méthode renvoie null)
+    // car l’argument saisi par l’utilisateur concernant le type de véhicule est erroné
+    // (par exemple, l’utilisateur a saisi 3).
+    @Test
+    public void testGetNextParkingNumberIfAvailableParkingNumberWrongArgument(){
+        when(inputReaderUtil.readSelection()).thenReturn(3);
+        
+        ParkingSpot availableParkingSpot = parkingService.getNextParkingNumberIfAvailable();
+
+        assertNull(availableParkingSpot);
+    }
+
     @Test
     public void processExitingVehicleTestUnableUpdate(){
         when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(false);
