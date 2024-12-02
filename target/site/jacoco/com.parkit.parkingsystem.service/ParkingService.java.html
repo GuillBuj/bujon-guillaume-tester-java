@@ -64,13 +64,13 @@ public class ParkingService {
     }
 
     public ParkingSpot getNextParkingNumberIfAvailable(){
-<span class="nc" id="L67">        int parkingNumber=0;</span>
-<span class="nc" id="L68">        ParkingSpot parkingSpot = null;</span>
+<span class="fc" id="L67">        int parkingNumber=0;</span>
+<span class="fc" id="L68">        ParkingSpot parkingSpot = null;</span>
         try{
-<span class="nc" id="L70">            ParkingType parkingType = getVehichleType();</span>
-<span class="nc" id="L71">            parkingNumber = parkingSpotDAO.getNextAvailableSlot(parkingType);</span>
-<span class="nc bnc" id="L72" title="All 2 branches missed.">            if(parkingNumber &gt; 0){</span>
-<span class="nc" id="L73">                parkingSpot = new ParkingSpot(parkingNumber,parkingType, true);</span>
+<span class="fc" id="L70">            ParkingType parkingType = getVehichleType();</span>
+<span class="fc" id="L71">            parkingNumber = parkingSpotDAO.getNextAvailableSlot(parkingType);</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">            if(parkingNumber &gt; 0){</span>
+<span class="fc" id="L73">                parkingSpot = new ParkingSpot(parkingNumber,parkingType, true);</span>
             }else{
 <span class="nc" id="L75">                throw new Exception(&quot;Error fetching parking number from DB. Parking slots might be full&quot;);</span>
             }
@@ -78,18 +78,18 @@ public class ParkingService {
 <span class="nc" id="L78">            logger.error(&quot;Error parsing user input for type of vehicle&quot;, ie);</span>
 <span class="nc" id="L79">        }catch(Exception e){</span>
 <span class="nc" id="L80">            logger.error(&quot;Error fetching next available parking slot&quot;, e);</span>
-<span class="nc" id="L81">        }</span>
-<span class="nc" id="L82">        return parkingSpot;</span>
+<span class="pc" id="L81">        }</span>
+<span class="fc" id="L82">        return parkingSpot;</span>
     }
 
-    private ParkingType getVehichleType(){
-<span class="nc" id="L86">        System.out.println(&quot;Please select vehicle type from menu&quot;);</span>
-<span class="nc" id="L87">        System.out.println(&quot;1 CAR&quot;);</span>
-<span class="nc" id="L88">        System.out.println(&quot;2 BIKE&quot;);</span>
-<span class="nc" id="L89">        int input = inputReaderUtil.readSelection();</span>
-<span class="nc bnc" id="L90" title="All 3 branches missed.">        switch(input){</span>
+    /*private*/public ParkingType getVehichleType(){
+<span class="fc" id="L86">        System.out.println(&quot;Please select vehicle type from menu&quot;);</span>
+<span class="fc" id="L87">        System.out.println(&quot;1 CAR&quot;);</span>
+<span class="fc" id="L88">        System.out.println(&quot;2 BIKE&quot;);</span>
+<span class="fc" id="L89">        int input = inputReaderUtil.readSelection();</span>
+<span class="pc bpc" id="L90" title="2 of 3 branches missed.">        switch(input){</span>
             case 1: {
-<span class="nc" id="L92">                return ParkingType.CAR;</span>
+<span class="fc" id="L92">                return ParkingType.CAR;</span>
             }
             case 2: {
 <span class="nc" id="L95">                return ParkingType.BIKE;</span>

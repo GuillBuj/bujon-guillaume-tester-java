@@ -2,6 +2,7 @@ package com.parkit.parkingsystem;
 
 import java.util.Date;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,16 +43,15 @@ public class ParkingServiceTest {
     @BeforeEach
     private void setUpPerTest() {
         try {
-            when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
+            lenient().when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
 
-            ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
+            ParkingSpot parkingSpot = new ParkingSpot(2, ParkingType.CAR, false);
             Ticket ticket = new Ticket();
             ticket.setInTime(new Date(System.currentTimeMillis() - (60 * 60 * 1000)));
             ticket.setParkingSpot(parkingSpot);
             ticket.setVehicleRegNumber("ABCDEF");
-            when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
+            lenient().when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
             lenient().when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
-
             lenient().when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
 
             parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
@@ -93,6 +93,21 @@ public class ParkingServiceTest {
     //     assertNull(ticket.getOutTime(), "L'heure de sortie doit être null");
     // }
 
+    // testGetNextParkingNumberIfAvailable
+    // test de l’appel de la méthode getNextParkingNumberIfAvailable()
+    // avec pour résultat l’obtention d’un spot dont l’ID est 1 et qui est disponible.
+    @Test
+    public void testGetNextParkingNumberIfAvailable(){
+        when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
+        when(inputReaderUtil.readSelection()).thenReturn(1);
+        
+        ParkingSpot availableParkingSpot = parkingService.getNextParkingNumberIfAvailable();
+
+        assertNotNull(availableParkingSpot);
+        assertEquals(1,availableParkingSpot.getId());
+        assertTrue(availableParkingSpot.isAvailable());
+    }
+
     @Test
     public void processExitingVehicleTestUnableUpdate(){
         when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(false);
@@ -121,4 +136,5 @@ public class ParkingServiceTest {
         assertTrue(ticket.getPrice() > 0, "Le prix ne doit plus être de 0");
     }
 
+    
 }
