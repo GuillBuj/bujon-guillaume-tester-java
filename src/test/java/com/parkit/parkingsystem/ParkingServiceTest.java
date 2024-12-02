@@ -3,12 +3,14 @@ package com.parkit.parkingsystem;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import org.mockito.InjectMocks;
@@ -62,41 +64,35 @@ public class ParkingServiceTest {
         }
     }
 
-    // @Test
-    // public void testProcessIncomingVehicle() {
-    //     ArgumentCaptor<ParkingSpot> parkingSpotCaptor = ArgumentCaptor.forClass(ParkingSpot.class);
-    //     ArgumentCaptor<Ticket> ticketCaptor = ArgumentCaptor.forClass(Ticket.class);
-    //     ArgumentCaptor<String> vehicleCaptor = ArgumentCaptor.forClass(String.class);
+    @Test
+    public void testProcessIncomingVehicle() {
+        ArgumentCaptor<ParkingSpot> parkingSpotCaptor = ArgumentCaptor.forClass(ParkingSpot.class);
+        ArgumentCaptor<Ticket> ticketCaptor = ArgumentCaptor.forClass(Ticket.class);
+        ArgumentCaptor<String> vehicleCaptor = ArgumentCaptor.forClass(String.class);
 
-    //     ParkingSpot availableParkingSpot = new ParkingSpot(2, ParkingType.CAR, true);
-    //     int result = 1;
-    //     when(inputReaderUtil.readSelection()).thenReturn(result);
-    //     when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
-    //     when(parkingService.getNextParkingNumberIfAvailable()).thenReturn(availableParkingSpot);
+        when(inputReaderUtil.readSelection()).thenReturn(1);
+        when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
 
-    //     when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
+        when(ticketDAO.getNbTicket("ABCDEF")).thenReturn(1);
 
-    //     parkingService.processIncomingVehicle();
+        parkingService.processIncomingVehicle();
 
-    //     verify(parkingSpotDAO, times(1)).updateParking(parkingSpotCaptor.capture()/* any(ParkingSpot.class) */);
-    //     verify(ticketDAO, times(1)).saveTicket(ticketCaptor.capture()/* any(Ticket.class) */);
-    //     verify(ticketDAO, times(1)).getNbTicket(vehicleCaptor.capture());
+        verify(parkingSpotDAO, times(1)).updateParking(parkingSpotCaptor.capture());
+        verify(ticketDAO, times(1)).saveTicket(ticketCaptor.capture());
+        verify(ticketDAO, times(1)).getNbTicket(vehicleCaptor.capture());
 
-    //     ParkingSpot parkingSpot = parkingSpotCaptor.getValue();
-    //     assertNotNull(parkingSpot, "Le parkingSpot ne doit pas être null");
-    //     assertFalse(parkingSpot.isAvailable(), "La place ne doit plus être disponible");
+        ParkingSpot parkingSpot = parkingSpotCaptor.getValue();
+        assertNotNull(parkingSpot);
+        assertFalse(parkingSpot.isAvailable());
 
-    //     Ticket ticket = ticketCaptor.getValue();
-    //     assertNotNull(ticket, "Le ticket ne doit pas être null");
-    //     assertEquals("ABCDEF", vehicleCaptor.getValue(), "Le numéro du véhicule doit correspondre");
-    //     assertEquals(0, ticket.getPrice(), 0, "Le prix doit être initialisé à 0");
-    //     assertNotNull(ticket.getInTime(), "L'heure d'entrée doit être définie");
-    //     assertNull(ticket.getOutTime(), "L'heure de sortie doit être null");
-    // }
+        Ticket ticket = ticketCaptor.getValue();
+        assertNotNull(ticket);
+        assertEquals("ABCDEF", vehicleCaptor.getValue());
+        assertEquals(0, ticket.getPrice());
+        assertNotNull(ticket.getInTime());
+        assertNull(ticket.getOutTime());
+    }
 
-    // testGetNextParkingNumberIfAvailable
-    // test de l’appel de la méthode getNextParkingNumberIfAvailable()
-    // avec pour résultat l’obtention d’un spot dont l’ID est 1 et qui est disponible.
     @Test
     public void testGetNextParkingNumberIfAvailable(){
         when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
@@ -109,9 +105,6 @@ public class ParkingServiceTest {
         assertTrue(availableParkingSpot.isAvailable());
     }
 
-    // testGetNextParkingNumberIfAvailableParkingNumberNotFound :
-    // test de l’appel de la méthode getNextParkingNumberIfAvailable()
-    // avec pour résultat aucun spot disponible (la méthode renvoie null).
     @Test
     public void testGetNextParkingNumberIfAvailableParkingNumberNotFound(){
         when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(0);
@@ -122,11 +115,6 @@ public class ParkingServiceTest {
         assertNull(availableParkingSpot);
     }
 
-    // testGetNextParkingNumberIfAvailableParkingNumberWrongArgument :
-    // test de l’appel de la méthode getNextParkingNumberIfAvailable()
-    // avec pour résultat aucun spot (la méthode renvoie null)
-    // car l’argument saisi par l’utilisateur concernant le type de véhicule est erroné
-    // (par exemple, l’utilisateur a saisi 3).
     @Test
     public void testGetNextParkingNumberIfAvailableParkingNumberWrongArgument(){
         when(inputReaderUtil.readSelection()).thenReturn(3);
@@ -163,6 +151,5 @@ public class ParkingServiceTest {
         assertNotNull(ticket.getOutTime(), "La date de sortie doit avoir été définie");
         assertTrue(ticket.getPrice() > 0, "Le prix ne doit plus être de 0");
     }
-
     
 }
