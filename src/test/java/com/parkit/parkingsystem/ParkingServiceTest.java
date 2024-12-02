@@ -4,6 +4,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -106,6 +107,19 @@ public class ParkingServiceTest {
         assertNotNull(availableParkingSpot);
         assertEquals(1,availableParkingSpot.getId());
         assertTrue(availableParkingSpot.isAvailable());
+    }
+
+    // testGetNextParkingNumberIfAvailableParkingNumberNotFound :
+    // test de l’appel de la méthode getNextParkingNumberIfAvailable()
+    // avec pour résultat aucun spot disponible (la méthode renvoie null).
+    @Test
+    public void testGetNextParkingNumberIfAvailableParkingNumberNotFound(){
+        when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(0);
+        when(inputReaderUtil.readSelection()).thenReturn(1);
+
+        ParkingSpot availableParkingSpot = parkingService.getNextParkingNumberIfAvailable();
+
+        assertNull(availableParkingSpot);
     }
 
     @Test
