@@ -1,3 +1,33 @@
 {
-    "xml.validation.enabled": false
+  "xml.validation.enabled": false,
+  "sqltools.connections": [
+    {
+        "mysqlOptions": {
+            "authProtocol": "default",
+            "enableSsl": "Disabled"
+        },
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 3306,
+        "driver": "MySQL",
+        "username": "root",
+        "database": "prod",
+        "name": "Local MySQL",
+        "password": "root"
+    },
+    {
+        "mysqlOptions": {
+            "authProtocol": "default",
+            "enableSsl": "Disabled"
+        },
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 3306,
+        "driver": "MySQL",
+        "name": "Local MySQL (prod)",
+        "database": "prod",
+        "username": "root",
+        "password": "root"
+    }
+]
 }
