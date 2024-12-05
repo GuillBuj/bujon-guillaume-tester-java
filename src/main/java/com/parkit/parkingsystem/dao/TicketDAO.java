@@ -21,27 +21,50 @@ public class TicketDAO {
 
     public DataBaseConfig dataBaseConfig = new DataBaseConfig();
 
-    public boolean saveTicket(Ticket ticket){
+    public boolean saveTicket(Ticket ticket) {
         Connection con = null;
+        PreparedStatement ps = null;
         try {
-            con = dataBaseConfig.getConnection();
-            PreparedStatement ps = con.prepareStatement(DBConstants.SAVE_TICKET);
-            //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
-            //ps.setInt(1,ticket.getId());
-            ps.setInt(1,ticket.getParkingSpot().getId());
+            try {
+                con = dataBaseConfig.getConnection();
+            } catch (ClassNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
+            // Préparer la requête SQL pour insérer un ticket
+            ps = con.prepareStatement(DBConstants.SAVE_TICKET);
+    
+            // Remplir les paramètres de la requête
+            ps.setInt(1, ticket.getParkingSpot().getId());
             ps.setString(2, ticket.getVehicleRegNumber());
             ps.setDouble(3, ticket.getPrice());
             ps.setTimestamp(4, new Timestamp(ticket.getInTime().getTime()));
-            ps.setTimestamp(5, (ticket.getOutTime() == null)?null: (new Timestamp(ticket.getOutTime().getTime())) );
-            return ps.execute();
-        }catch (Exception ex){
-            logger.error("Error fetching next available slot",ex);
-        }finally {
-            dataBaseConfig.closeConnection(con);
+            ps.setTimestamp(5, (ticket.getOutTime() == null) ? null : new Timestamp(ticket.getOutTime().getTime()));
+    
+            // Exécuter la requête et obtenir le nombre de lignes affectées
+            int rowsAffected = ps.executeUpdate();
+           // Si une ligne a été insérée, on retourne true, sinon false
+            return rowsAffected == 1;
+        } catch (SQLException ex) {
+            logger.error("Error saving ticket to the database", ex);
             return false;
+        } finally {
+            // Toujours fermer les ressources
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                logger.error("Error closing resources", ex);
+            }
         }
     }
 
+    @SuppressWarnings("finally")
     public Ticket getTicket(String vehicleRegNumber) {
         Connection con = null;
         Ticket ticket = null;
@@ -77,9 +100,14 @@ public class TicketDAO {
             con = dataBaseConfig.getConnection();
             PreparedStatement ps = con.prepareStatement(DBConstants.UPDATE_TICKET);
             ps.setDouble(1, ticket.getPrice());
-            ps.setTimestamp(2, new Timestamp(ticket.getOutTime().getTime()));
-            ps.setInt(3,ticket.getId());
-            ps.execute();
+            if (ticket.getOutTime() != null) {
+                ps.setTimestamp(2, new Timestamp(ticket.getOutTime().getTime()));
+            } else {
+                ps.setNull(2, java.sql.Types.TIMESTAMP);
+            }
+            ps.setTimestamp(3, new Timestamp(ticket.getInTime().getTime()));
+            ps.setInt(4,ticket.getId());
+            ps.executeUpdate();
             return true;
         }catch (Exception ex){
             logger.error("Error saving ticket info",ex);

@@ -1,15 +1,17 @@
 package com.parkit.parkingsystem.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.parkit.parkingsystem.config.DataBaseConfig;
 import com.parkit.parkingsystem.constants.DBConstants;
 import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.model.ParkingSpot;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public class ParkingSpotDAO {
     private static final Logger logger = LogManager.getLogger("ParkingSpotDAO");
@@ -25,7 +27,7 @@ public class ParkingSpotDAO {
             ps.setString(1, parkingType.toString());
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                result = rs.getInt(1);;
+                result = rs.getInt(1);
             }
             dataBaseConfig.closeResultSet(rs);
             dataBaseConfig.closePreparedStatement(ps);
@@ -35,6 +37,25 @@ public class ParkingSpotDAO {
             dataBaseConfig.closeConnection(con);
         }
         return result;
+    }
+
+    public boolean isAvailable(int parkingNumber){
+        Connection con = null;
+        boolean available = false;
+        try {
+            con = dataBaseConfig.getConnection();
+            PreparedStatement ps = con.prepareStatement(DBConstants.TEST_PARKING_SPOT_AVAILABLE);
+            ps.setInt(1, parkingNumber);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){ available=rs.getBoolean(1);}
+            dataBaseConfig.closeResultSet(rs);
+            dataBaseConfig.closePreparedStatement(ps);
+        } catch (ClassNotFoundException | SQLException e) {
+            logger.error("Error checking parking spot availability", e);
+        } finally {
+            dataBaseConfig.closeConnection(con);
+        }
+        return available;
     }
 
     public boolean updateParking(ParkingSpot parkingSpot){

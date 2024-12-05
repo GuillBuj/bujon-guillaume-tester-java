@@ -1,6 +1,6 @@
 {
-  "xml.validation.enabled": false,
-  "sqltools.connections": [
+    "xml.validation.enabled": false,
+    "sqltools.connections": [
     {
         "mysqlOptions": {
             "authProtocol": "default",
