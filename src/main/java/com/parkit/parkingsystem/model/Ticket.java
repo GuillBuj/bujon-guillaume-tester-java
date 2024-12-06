@@ -41,8 +41,10 @@ public class Ticket {
     }
 
     public void setPrice(double price) {
-        BigDecimal priceBigDecimal = BigDecimal.valueOf(price).setScale(2,RoundingMode.HALF_DOWN);
-        this.price = priceBigDecimal.doubleValue();
+        // BigDecimal priceBigDecimal =
+        // BigDecimal.valueOf(price).setScale(2,RoundingMode.HALF_DOWN);
+        // this.price = priceBigDecimal.doubleValue();
+        this.price = price;
     }
 
     public Date getInTime() {

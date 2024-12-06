@@ -1,25 +1,28 @@
 package com.parkit.parkingsystem.service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.model.Ticket;
 
 public class FareCalculatorService {
 
-    public void calculateFare(Ticket ticket, boolean discount){
-        if( (ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime())) ){
-            throw new IllegalArgumentException("Out time provided is incorrect:"+ticket.getOutTime().toString());
+    public void calculateFare(Ticket ticket, boolean discount) {
+        if ((ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime()))) {
+            throw new IllegalArgumentException("Out time provided is incorrect:" + ticket.getOutTime().toString());
         }
 
-        long inTimeMs =  ticket.getInTime().getTime();
-        long outTimeMs =  ticket.getOutTime().getTime();
+        long inTimeMs = ticket.getInTime().getTime();
+        long outTimeMs = ticket.getOutTime().getTime();
 
-        double durationH =(double)(outTimeMs - inTimeMs)/3600000;
+        double durationH = (double) (outTimeMs - inTimeMs) / 3600000;
 
-        if(durationH < 0.5){              //gratuit pour moins de 30 minutes
+        if (durationH < 0.5) { // gratuit pour moins de 30 minutes
             ticket.setPrice(0);
-        } else{
-            double rate = discount ? (100-Fare.DISCOUNT_PCT)/100 : 1;
-            switch (ticket.getParkingSpot().getParkingType()){
+        } else {
+            double rate = discount ? (100 - Fare.DISCOUNT_PCT) / 100 : 1;
+            switch (ticket.getParkingSpot().getParkingType()) {
                 case CAR: {
                     ticket.setPrice(durationH * Fare.CAR_RATE_PER_HOUR * rate);
                     break;
@@ -28,12 +31,19 @@ public class FareCalculatorService {
                     ticket.setPrice(durationH * Fare.BIKE_RATE_PER_HOUR * rate);
                     break;
                 }
-                default: throw new IllegalArgumentException("Unkown Parking Type");
+                default:
+                    throw new IllegalArgumentException("Unkown Parking Type");
             }
-        }    
+            arrondiPrixTicket(ticket);
+        }
     }
 
-    public void calculateFare(Ticket ticket){
+    public void calculateFare(Ticket ticket) {
         calculateFare(ticket, false);
+    }
+
+    private void arrondiPrixTicket(Ticket ticket) {
+        BigDecimal priceBigDecimal = BigDecimal.valueOf(ticket.getPrice()).setScale(2, RoundingMode.HALF_DOWN);
+        ticket.setPrice(priceBigDecimal.doubleValue());
     }
 }

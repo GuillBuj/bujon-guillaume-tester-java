@@ -41,24 +41,26 @@ import java.util.Date;
     }
 
     public void setPrice(double price) {
-<span class="fc" id="L44">        BigDecimal priceBigDecimal = BigDecimal.valueOf(price).setScale(2,RoundingMode.HALF_DOWN);</span>
-<span class="fc" id="L45">        this.price = priceBigDecimal.doubleValue();</span>
-<span class="fc" id="L46">    }</span>
+        // BigDecimal priceBigDecimal =
+        // BigDecimal.valueOf(price).setScale(2,RoundingMode.HALF_DOWN);
+        // this.price = priceBigDecimal.doubleValue();
+<span class="fc" id="L47">        this.price = price;</span>
+<span class="fc" id="L48">    }</span>
 
     public Date getInTime() {
-<span class="fc" id="L49">        return inTime;</span>
+<span class="fc" id="L51">        return inTime;</span>
     }
 
     public void setInTime(Date inTime) {
-<span class="fc" id="L53">        this.inTime = inTime;</span>
-<span class="fc" id="L54">    }</span>
+<span class="fc" id="L55">        this.inTime = inTime;</span>
+<span class="fc" id="L56">    }</span>
 
     public Date getOutTime() {
-<span class="fc" id="L57">        return outTime;</span>
+<span class="fc" id="L59">        return outTime;</span>
     }
 
     public void setOutTime(Date outTime) {
-<span class="fc" id="L61">        this.outTime = outTime;</span>
-<span class="fc" id="L62">    }</span>
+<span class="fc" id="L63">        this.outTime = outTime;</span>
+<span class="fc" id="L64">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
