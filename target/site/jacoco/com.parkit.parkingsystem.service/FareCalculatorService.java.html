@@ -18,9 +18,9 @@ import com.parkit.parkingsystem.model.Ticket;
 
 <span class="fc" id="L19">        double durationH = (double) (outTimeMs - inTimeMs) / 3600000;</span>
 
-<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (durationH &lt; 0.5) { // gratuit pour moins de 30 minutes</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (durationH &lt; 0.5) { // free for less than half an hour</span>
 <span class="fc" id="L22">            ticket.setPrice(0);</span>
-<span class="fc" id="L23">        } else {</span>
+        } else {
 <span class="fc bfc" id="L24" title="All 2 branches covered.">            double rate = discount ? (100 - Fare.DISCOUNT_PCT) / 100 : 1;</span>
 <span class="pc bpc" id="L25" title="1 of 3 branches missed.">            switch (ticket.getParkingSpot().getParkingType()) {</span>
                 case CAR: {
@@ -34,7 +34,7 @@ import com.parkit.parkingsystem.model.Ticket;
                 default:
 <span class="nc" id="L35">                    throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
             }
-<span class="fc" id="L37">            arrondiPrixTicket(ticket);</span>
+<span class="fc" id="L37">            roundTicketPrice(ticket);</span>
         }
 <span class="fc" id="L39">    }</span>
 
@@ -42,7 +42,7 @@ import com.parkit.parkingsystem.model.Ticket;
 <span class="fc" id="L42">        calculateFare(ticket, false);</span>
 <span class="fc" id="L43">    }</span>
 
-    private void arrondiPrixTicket(Ticket ticket) {
+    private void roundTicketPrice(Ticket ticket) {
 <span class="fc" id="L46">        BigDecimal priceBigDecimal = BigDecimal.valueOf(ticket.getPrice()).setScale(2, RoundingMode.HALF_DOWN);</span>
 <span class="fc" id="L47">        ticket.setPrice(priceBigDecimal.doubleValue());</span>
 <span class="fc" id="L48">    }</span>

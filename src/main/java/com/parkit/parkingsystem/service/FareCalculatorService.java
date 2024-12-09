@@ -18,7 +18,7 @@ public class FareCalculatorService {
 
         double durationH = (double) (outTimeMs - inTimeMs) / 3600000;
 
-        if (durationH < 0.5) { // gratuit pour moins de 30 minutes
+        if (durationH < 0.5) { // free for less than half an hour
             ticket.setPrice(0);
         } else {
             double rate = discount ? (100 - Fare.DISCOUNT_PCT) / 100 : 1;
@@ -34,7 +34,7 @@ public class FareCalculatorService {
                 default:
                     throw new IllegalArgumentException("Unkown Parking Type");
             }
-            arrondiPrixTicket(ticket);
+            roundTicketPrice(ticket);
         }
     }
 
@@ -42,7 +42,7 @@ public class FareCalculatorService {
         calculateFare(ticket, false);
     }
 
-    private void arrondiPrixTicket(Ticket ticket) {
+    private void roundTicketPrice(Ticket ticket) {
         BigDecimal priceBigDecimal = BigDecimal.valueOf(ticket.getPrice()).setScale(2, RoundingMode.HALF_DOWN);
         ticket.setPrice(priceBigDecimal.doubleValue());
     }
