@@ -1,0 +1,176 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.parkit:parking-system >----------------------
+[INFO] Building parking-system 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ parking-system ---
+[INFO] argLine set to -javaagent:C:\\Users\\teb03\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.8\\org.jacoco.agent-0.8.8-runtime.jar=destfile=C:\\Users\\teb03\\Desktop\\gits\\P4\\bujon-guillaume-tester-java\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ parking-system ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ parking-system ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ parking-system ---
+[INFO] skip non existing resourceDirectory C:\Users\teb03\Desktop\gits\P4\bujon-guillaume-tester-java\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ parking-system ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ parking-system ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.parkit.parkingsystem.integration.ParkingDataBaseIT
+---TESTPARKINGLOTEXITRECURRINGUSER---
+Please select vehicle type from menu
+1 CAR
+2 BIKE
+Please type the vehicle registration number and press enter key
+Generated Ticket and saved in DB
+Welcome back!
+Please park your vehicle in spot number:1
+Recorded in-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:47 CET 2024
+Please type the vehicle registration number and press enter key
+-*-*-*-*prix avant arrondi:1.4249057916666665
+rounded price: 1.425
+-*-*-*-*prix après arrondi:1.42
+Please pay the parking fare:1.42
+Recorded out-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:47 CET 2024
+---TESTPARKINGLOTEXIT---
+Please select vehicle type from menu
+1 CAR
+2 BIKE
+Please type the vehicle registration number and press enter key
+Generated Ticket and saved in DB
+Welcome back!
+Please park your vehicle in spot number:1
+Recorded in-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:47 CET 2024
+Please type the vehicle registration number and press enter key
+-*-*-*-*prix avant arrondi:1.5000175000000002
+rounded price: 1.5
+-*-*-*-*prix après arrondi:1.5
+Please pay the parking fare:1.5
+Recorded out-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:48 CET 2024
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-entree: 2024-12-11 09:14:48.0sortie: 2024-12-11 10:14:48.0, prix: 1.5
+--*-*-*-*-* prix ticket recupéré dao: 1.5
+---TESTPARKINGACAR---
+Please select vehicle type from menu
+1 CAR
+2 BIKE
+Please type the vehicle registration number and press enter key
+Generated Ticket and saved in DB
+Welcome back!
+Please park your vehicle in spot number:1
+Recorded in-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:48 CET 2024
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.688 s - in com.parkit.parkingsystem.integration.ParkingDataBaseIT
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (jacoco-report) @ parking-system ---
+[INFO] Loading execution data file C:\Users\teb03\Desktop\gits\P4\bujon-guillaume-tester-java\target\jacoco.exec
+[INFO] Analyzed bundle 'parking-system' with 13 classes
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ parking-system ---
+[INFO] Building jar: C:\Users\teb03\Desktop\gits\P4\bujon-guillaume-tester-java\target\parking-system-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- assembly:3.7.1:single (default) @ parking-system ---
+[INFO] Building jar: C:\Users\teb03\Desktop\gits\P4\bujon-guillaume-tester-java\target\parking-system-1.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO] 
+[INFO] --- surefire:2.22.0:test (integration-test) @ parking-system ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.parkit.parkingsystem.integration.ParkingDataBaseIT
+---TESTPARKINGLOTEXITRECURRINGUSER---
+Please select vehicle type from menu
+1 CAR
+2 BIKE
+Please type the vehicle registration number and press enter key
+Generated Ticket and saved in DB
+Welcome back!
+Please park your vehicle in spot number:1
+Recorded in-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:57 CET 2024
+Please type the vehicle registration number and press enter key
+-*-*-*-*prix avant arrondi:1.425097375
+rounded price: 1.425
+-*-*-*-*prix après arrondi:1.42
+Please pay the parking fare:1.42
+Recorded out-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:57 CET 2024
+---TESTPARKINGLOTEXIT---
+Please select vehicle type from menu
+1 CAR
+2 BIKE
+Please type the vehicle registration number and press enter key
+Generated Ticket and saved in DB
+Welcome back!
+Please park your vehicle in spot number:1
+Recorded in-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:57 CET 2024
+Please type the vehicle registration number and press enter key
+-*-*-*-*prix avant arrondi:1.4998154166666666
+rounded price: 1.5
+-*-*-*-*prix après arrondi:1.5
+Please pay the parking fare:1.5
+Recorded out-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:57 CET 2024
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-entree: 2024-12-11 09:14:58.0sortie: 2024-12-11 10:14:58.0, prix: 1.5
+--*-*-*-*-* prix ticket recupéré dao: 1.5
+---TESTPARKINGACAR---
+Please select vehicle type from menu
+1 CAR
+2 BIKE
+Please type the vehicle registration number and press enter key
+Generated Ticket and saved in DB
+Welcome back!
+Please park your vehicle in spot number:1
+Recorded in-time for vehicle number:ABCDEF is:Wed Dec 11 10:14:57 CET 2024
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.26 s - in com.parkit.parkingsystem.integration.ParkingDataBaseIT
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] >>> surefire-report:2.22.0:report (default) > [surefire]test @ parking-system >>>
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ parking-system ---
+[INFO] argLine set to -javaagent:C:\\Users\\teb03\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.8\\org.jacoco.agent-0.8.8-runtime.jar=destfile=C:\\Users\\teb03\\Desktop\\gits\\P4\\bujon-guillaume-tester-java\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ parking-system ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ parking-system ---
+[INFO] Nothing to compile - all classes are up to date.
+[WARNING] Overwriting artifact's file from C:\Users\teb03\Desktop\gits\P4\bujon-guillaume-tester-java\target\parking-system-1.0-SNAPSHOT.jar to C:\Users\teb03\Desktop\gits\P4\bujon-guillaume-tester-java\target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ parking-system ---
+[INFO] skip non existing resourceDirectory C:\Users\teb03\Desktop\gits\P4\bujon-guillaume-tester-java\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ parking-system ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ parking-system ---
+[INFO] Skipping execution of surefire because it has already been run for this configuration
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (jacoco-report) @ parking-system ---
+[INFO] Loading execution data file C:\Users\teb03\Desktop\gits\P4\bujon-guillaume-tester-java\target\jacoco.exec
+[INFO] Analyzed bundle 'parking-system' with 13 classes
+[INFO] 
+[INFO] <<< surefire-report:2.22.0:report (default) < [surefire]test @ parking-system <<<
+[INFO] 
+[INFO] 
+[INFO] --- surefire-report:2.22.0:report (default) @ parking-system ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.253 s
+[INFO] Finished at: 2024-12-11T10:15:00+01:00
+[INFO] ------------------------------------------------------------------------

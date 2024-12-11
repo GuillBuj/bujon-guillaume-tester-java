@@ -3,10 +3,15 @@ package com.parkit.parkingsystem.service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.model.Ticket;
 
 public class FareCalculatorService {
+    Logger logger = LogManager.getLogger(FareCalculatorService.class);
+
 
     public void calculateFare(Ticket ticket, boolean discount) {
         if ((ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime()))) {
@@ -34,7 +39,9 @@ public class FareCalculatorService {
                 default:
                     throw new IllegalArgumentException("Unkown Parking Type");
             }
+            logger.debug("Price before rounding: " + ticket.getPrice());
             roundTicketPrice(ticket);
+            logger.debug("Price after rounding: " + ticket.getPrice());
         }
     }
 
@@ -43,7 +50,9 @@ public class FareCalculatorService {
     }
 
     private void roundTicketPrice(Ticket ticket) {
-        BigDecimal priceBigDecimal = BigDecimal.valueOf(ticket.getPrice()).setScale(2, RoundingMode.HALF_DOWN);
+        double preRoundedPrice = Math.round(ticket.getPrice()*1000.0)/1000.0;
+        logger.debug("Price after first rounding: " + preRoundedPrice);
+        BigDecimal priceBigDecimal = BigDecimal.valueOf(preRoundedPrice).setScale(2, RoundingMode.HALF_DOWN);
         ticket.setPrice(priceBigDecimal.doubleValue());
     }
 }

@@ -98,15 +98,11 @@ public class ParkingDataBaseIT {
         
         parkingService.processExitingVehicle();
 
-        //TODO: check that the fare generated and out time are populated correctly in the database
         Ticket ticket = ticketDAO.getTicket("ABCDEF");
         int parkingSpotNumber = ticket.getParkingSpot().getId();
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-entree: "+ ticket.getInTime()+ "sortie: "+ ticket.getOutTime() +", prix: " + ticket.getPrice());
         assertNotNull(ticket);
         assertNotNull(ticket.getOutTime());
         assertTrue(ticket.getOutTime().after(ticket.getInTime()));
-        System.out.println("--*-*-*-*-* prix ticket recupéré dao: " + ticket.getPrice());
-        //assertTrue(ticket.getPrice()>=0);
         assertEquals(Fare.CAR_RATE_PER_HOUR, ticket.getPrice());
         assertTrue(parkingSpotDAO.isAvailable(parkingSpotNumber));
     }
@@ -120,9 +116,9 @@ public class ParkingDataBaseIT {
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
         previousTicket.setParkingSpot(parkingSpot);
         previousTicket.setVehicleRegNumber("ABCDEF");
-        previousTicket.setPrice(3);
+        previousTicket.setPrice(2);
         previousTicket.setInTime(new Date(System.currentTimeMillis() - (180 * 60 * 1000)));
-        previousTicket.setOutTime(new Date(System.currentTimeMillis() - (60 * 60 * 1000)));
+        previousTicket.setOutTime(new Date(System.currentTimeMillis() - (90 * 60 * 1000)));
         ticketDAO.saveTicket(previousTicket);
 
         parkingService.processIncomingVehicle();
@@ -135,16 +131,11 @@ public class ParkingDataBaseIT {
         
         parkingService.processExitingVehicle();
 
-        //TODO: check that the fare generated and out time are populated correctly in the database
         Ticket ticket = ticketDAO.getTicket("ABCDEF");
         int parkingSpotNumber = ticket.getParkingSpot().getId();
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-entree: "+ ticket.getInTime()+ "sortie: "+ ticket.getOutTime() +", prix: " + ticket.getPrice());
         assertNotNull(ticket);
         assertNotNull(ticket.getOutTime());
         assertTrue(ticket.getOutTime().after(ticket.getInTime()));
-        System.out.println("--*-*-*-*-* prix ticket recupéré dao: " + ticket.getPrice());
-        //assertTrue(ticket.getPrice()>=0);
-        //assertEquals(1.43, ticket.getPrice());
         BigDecimal priceBigDecimal = BigDecimal.valueOf(((Fare.CAR_RATE_PER_HOUR * (100 - Fare.DISCOUNT_PCT))/100)).setScale(2,RoundingMode.HALF_DOWN);
         assertEquals(priceBigDecimal, BigDecimal.valueOf(ticket.getPrice()));
         assertTrue(parkingSpotDAO.isAvailable(parkingSpotNumber));

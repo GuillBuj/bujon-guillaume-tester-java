@@ -3,48 +3,57 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.model.Ticket;
 
-<span class="fc" id="L9">public class FareCalculatorService {</span>
+<span class="fc" id="L12">public class FareCalculatorService {</span>
+<span class="fc" id="L13">    Logger logger = LogManager.getLogger(FareCalculatorService.class);</span>
+
 
     public void calculateFare(Ticket ticket, boolean discount) {
-<span class="pc bpc" id="L12" title="1 of 4 branches missed.">        if ((ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime()))) {</span>
-<span class="fc" id="L13">            throw new IllegalArgumentException(&quot;Out time provided is incorrect:&quot; + ticket.getOutTime().toString());</span>
+<span class="pc bpc" id="L17" title="1 of 4 branches missed.">        if ((ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime()))) {</span>
+<span class="fc" id="L18">            throw new IllegalArgumentException(&quot;Out time provided is incorrect:&quot; + ticket.getOutTime().toString());</span>
         }
 
-<span class="fc" id="L16">        long inTimeMs = ticket.getInTime().getTime();</span>
-<span class="fc" id="L17">        long outTimeMs = ticket.getOutTime().getTime();</span>
+<span class="fc" id="L21">        long inTimeMs = ticket.getInTime().getTime();</span>
+<span class="fc" id="L22">        long outTimeMs = ticket.getOutTime().getTime();</span>
 
-<span class="fc" id="L19">        double durationH = (double) (outTimeMs - inTimeMs) / 3600000;</span>
+<span class="fc" id="L24">        double durationH = (double) (outTimeMs - inTimeMs) / 3600000;</span>
 
-<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (durationH &lt; 0.5) { // free for less than half an hour</span>
-<span class="fc" id="L22">            ticket.setPrice(0);</span>
-        } else {
-<span class="fc bfc" id="L24" title="All 2 branches covered.">            double rate = discount ? (100 - Fare.DISCOUNT_PCT) / 100 : 1;</span>
-<span class="pc bpc" id="L25" title="1 of 3 branches missed.">            switch (ticket.getParkingSpot().getParkingType()) {</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (durationH &lt; 0.5) { // free for less than half an hour</span>
+<span class="fc" id="L27">            ticket.setPrice(0);</span>
+<span class="fc" id="L28">        } else {</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            double rate = discount ? (100 - Fare.DISCOUNT_PCT) / 100 : 1;</span>
+<span class="pc bpc" id="L30" title="1 of 3 branches missed.">            switch (ticket.getParkingSpot().getParkingType()) {</span>
                 case CAR: {
-<span class="fc" id="L27">                    ticket.setPrice(durationH * Fare.CAR_RATE_PER_HOUR * rate);</span>
-<span class="fc" id="L28">                    break;</span>
+<span class="fc" id="L32">                    ticket.setPrice(durationH * Fare.CAR_RATE_PER_HOUR * rate);</span>
+<span class="fc" id="L33">                    break;</span>
                 }
                 case BIKE: {
-<span class="fc" id="L31">                    ticket.setPrice(durationH * Fare.BIKE_RATE_PER_HOUR * rate);</span>
-<span class="fc" id="L32">                    break;</span>
+<span class="fc" id="L36">                    ticket.setPrice(durationH * Fare.BIKE_RATE_PER_HOUR * rate);</span>
+<span class="fc" id="L37">                    break;</span>
                 }
                 default:
-<span class="nc" id="L35">                    throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
+<span class="nc" id="L40">                    throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
             }
-<span class="fc" id="L37">            roundTicketPrice(ticket);</span>
+<span class="fc" id="L42">            logger.debug(&quot;Price before rounding: &quot; + ticket.getPrice());</span>
+<span class="fc" id="L43">            roundTicketPrice(ticket);</span>
+<span class="fc" id="L44">            logger.debug(&quot;Price after rounding: &quot; + ticket.getPrice());</span>
         }
-<span class="fc" id="L39">    }</span>
+<span class="fc" id="L46">    }</span>
 
     public void calculateFare(Ticket ticket) {
-<span class="fc" id="L42">        calculateFare(ticket, false);</span>
-<span class="fc" id="L43">    }</span>
+<span class="fc" id="L49">        calculateFare(ticket, false);</span>
+<span class="fc" id="L50">    }</span>
 
     private void roundTicketPrice(Ticket ticket) {
-<span class="fc" id="L46">        BigDecimal priceBigDecimal = BigDecimal.valueOf(ticket.getPrice()).setScale(2, RoundingMode.HALF_DOWN);</span>
-<span class="fc" id="L47">        ticket.setPrice(priceBigDecimal.doubleValue());</span>
-<span class="fc" id="L48">    }</span>
+<span class="fc" id="L53">        double preRoundedPrice = Math.round(ticket.getPrice()*1000.0)/1000.0;</span>
+<span class="fc" id="L54">        logger.debug(&quot;Price after first rounding: &quot; + preRoundedPrice);</span>
+<span class="fc" id="L55">        BigDecimal priceBigDecimal = BigDecimal.valueOf(preRoundedPrice).setScale(2, RoundingMode.HALF_DOWN);</span>
+<span class="fc" id="L56">        ticket.setPrice(priceBigDecimal.doubleValue());</span>
+<span class="fc" id="L57">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
