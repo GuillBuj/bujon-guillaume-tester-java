@@ -15,12 +15,12 @@ public class FareCalculatorService {
 
     public void calculateFare(Ticket ticket, boolean discount) {
         if ((ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime()))) {
-            throw new IllegalArgumentException("Out time provided is incorrect:" + ticket.getOutTime().toString());
+            throw new IllegalArgumentException
+                ("Out time provided is incorrect:" + ticket.getOutTime().toString());
         }
 
         long inTimeMs = ticket.getInTime().getTime();
         long outTimeMs = ticket.getOutTime().getTime();
-
         double durationH = (double) (outTimeMs - inTimeMs) / 3600000;
 
         if (durationH < 0.5) { // free for less than half an hour
@@ -37,7 +37,7 @@ public class FareCalculatorService {
                     break;
                 }
                 default:
-                    throw new IllegalArgumentException("Unkown Parking Type");
+                    throw new IllegalArgumentException("Unknown Parking Type");
             }
             logger.debug("Price before rounding: " + ticket.getPrice());
             roundTicketPrice(ticket);

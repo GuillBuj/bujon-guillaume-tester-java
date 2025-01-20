@@ -1468,3 +1468,364 @@ java.lang.IllegalArgumentException: Entered input is invalid
 2024-12-11 13:45:45 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.5
 2024-12-11 13:45:45 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
 2024-12-11 13:45:45 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:42 - Price before rounding: 0.95
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:54 - Price after first rounding: 0.95
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:44 - Price after rounding: 0.95
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.125
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.125
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.12
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.4249999999999998
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.425
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.42
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.5
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.0
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.0
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.0
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:42 - Price before rounding: 36.0
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:54 - Price after first rounding: 36.0
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:44 - Price after rounding: 36.0
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:42 - Price before rounding: 0.75
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:54 - Price after first rounding: 0.75
+2025-01-20 09:12:01 [DEBUG] FareCalculatorService:44 - Price after rounding: 0.75
+2025-01-20 09:12:02 [ERROR] ParkingService:79 - Error fetching next available parking slot
+java.lang.Exception: Error fetching parking number from DB. Parking slots might be full
+	at com.parkit.parkingsystem.service.ParkingService.getNextParkingNumberIfAvailable(ParkingService.java:74) ~[classes/:?]
+	at com.parkit.parkingsystem.ParkingServiceTest.testGetNextParkingNumberIfAvailableParkingNumberNotFound(ParkingServiceTest.java:113) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417) [surefire-booter-2.22.0.jar:2.22.0]
+2025-01-20 09:12:02 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.5
+2025-01-20 09:12:02 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 09:12:02 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 09:12:02 [ERROR] ParkingService:77 - Error parsing user input for type of vehicle
+java.lang.IllegalArgumentException: Entered input is invalid
+	at com.parkit.parkingsystem.service.ParkingService.getVehichleType(ParkingService.java:98) ~[classes/:?]
+	at com.parkit.parkingsystem.service.ParkingService.getNextParkingNumberIfAvailable(ParkingService.java:69) ~[classes/:?]
+	at com.parkit.parkingsystem.ParkingServiceTest.testGetNextParkingNumberIfAvailableParkingNumberWrongArgument(ParkingServiceTest.java:122) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417) [surefire-booter-2.22.0.jar:2.22.0]
+2025-01-20 09:12:02 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.500005
+2025-01-20 09:12:02 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 09:12:02 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 09:12:11 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.4249065833333332
+2025-01-20 09:12:14 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.425
+2025-01-20 09:12:14 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.42
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:14 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.500115
+2025-01-20 09:12:15 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 09:12:15 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:19 - Create DB connection
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:51 - Closing Result Set
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:40 - Closing Prepared Statement
+2025-01-20 09:12:15 [ INFO] DataBaseTestConfig:29 - Closing DB connection
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:42 - Price before rounding: 0.95
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:54 - Price after first rounding: 0.95
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:44 - Price after rounding: 0.95
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.125
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.125
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.12
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.4249999999999998
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.425
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.42
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.5
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.0
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.0
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.0
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:42 - Price before rounding: 36.0
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:54 - Price after first rounding: 36.0
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:44 - Price after rounding: 36.0
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:42 - Price before rounding: 0.75
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:54 - Price after first rounding: 0.75
+2025-01-20 09:12:33 [DEBUG] FareCalculatorService:44 - Price after rounding: 0.75
+2025-01-20 09:12:35 [ERROR] ParkingService:79 - Error fetching next available parking slot
+java.lang.Exception: Error fetching parking number from DB. Parking slots might be full
+	at com.parkit.parkingsystem.service.ParkingService.getNextParkingNumberIfAvailable(ParkingService.java:74) ~[classes/:?]
+	at com.parkit.parkingsystem.ParkingServiceTest.testGetNextParkingNumberIfAvailableParkingNumberNotFound(ParkingServiceTest.java:113) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417) [surefire-booter-2.22.0.jar:2.22.0]
+2025-01-20 09:12:35 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.5
+2025-01-20 09:12:35 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 09:12:35 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 09:12:35 [ERROR] ParkingService:77 - Error parsing user input for type of vehicle
+java.lang.IllegalArgumentException: Entered input is invalid
+	at com.parkit.parkingsystem.service.ParkingService.getVehichleType(ParkingService.java:98) ~[classes/:?]
+	at com.parkit.parkingsystem.service.ParkingService.getNextParkingNumberIfAvailable(ParkingService.java:69) ~[classes/:?]
+	at com.parkit.parkingsystem.ParkingServiceTest.testGetNextParkingNumberIfAvailableParkingNumberWrongArgument(ParkingServiceTest.java:122) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:532) ~[junit-platform-commons-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:171) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:167) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:114) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:59) ~[junit-jupiter-engine-5.3.2.jar:5.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:108) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$4(NodeTestTask.java:112) ~[junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:72) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:98) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:74) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) [junit-platform-engine-1.3.2.jar:1.3.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) [junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:132) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:111) [junit-platform-surefire-provider-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417) [surefire-booter-2.22.0.jar:2.22.0]
+2025-01-20 09:12:35 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.5
+2025-01-20 09:12:35 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 09:12:35 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 09:19:05 [ INFO] App:10 - Initializing Parking System
+2025-01-20 09:19:05 [ INFO] InteractiveShell:14 - App initialized!!!
+2025-01-20 09:19:17 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 09:19:17 [ INFO] DataBaseConfig:49 - Closing Result Set
+2025-01-20 09:19:17 [ INFO] DataBaseConfig:38 - Closing Prepared Statement
+2025-01-20 09:19:17 [ INFO] DataBaseConfig:27 - Closing DB connection
+2025-01-20 09:19:35 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 09:19:35 [ INFO] DataBaseConfig:38 - Closing Prepared Statement
+2025-01-20 09:19:35 [ INFO] DataBaseConfig:27 - Closing DB connection
+2025-01-20 09:19:35 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 09:19:35 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:49 - Closing Result Set
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:38 - Closing Prepared Statement
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:27 - Closing DB connection
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:27 - Closing DB connection
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:38 - Closing Prepared Statement
+2025-01-20 09:19:47 [ INFO] DataBaseConfig:27 - Closing DB connection
+2025-01-20 10:24:46 [ INFO] App:10 - Initializing Parking System
+2025-01-20 10:24:46 [ INFO] InteractiveShell:14 - App initialized!!!
+2025-01-20 10:25:13 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 10:25:14 [ INFO] DataBaseConfig:49 - Closing Result Set
+2025-01-20 10:25:14 [ INFO] DataBaseConfig:38 - Closing Prepared Statement
+2025-01-20 10:25:14 [ INFO] DataBaseConfig:27 - Closing DB connection
+2025-01-20 10:25:18 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 10:25:18 [ INFO] DataBaseConfig:38 - Closing Prepared Statement
+2025-01-20 10:25:18 [ INFO] DataBaseConfig:27 - Closing DB connection
+2025-01-20 10:25:18 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 10:25:19 [ INFO] DataBaseConfig:17 - Create DB connection
+2025-01-20 10:45:14 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.5000016666666667
+2025-01-20 10:45:14 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 10:45:14 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 10:45:34 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.5000016666666667
+2025-01-20 10:45:34 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 10:45:34 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
+2025-01-20 10:45:52 [DEBUG] FareCalculatorService:42 - Price before rounding: 1.5
+2025-01-20 10:45:52 [DEBUG] FareCalculatorService:54 - Price after first rounding: 1.5
+2025-01-20 10:45:52 [DEBUG] FareCalculatorService:44 - Price after rounding: 1.5
