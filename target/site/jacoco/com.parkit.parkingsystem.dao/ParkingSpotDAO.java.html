@@ -31,7 +31,7 @@ import com.parkit.parkingsystem.model.ParkingSpot;
             }
 <span class="fc" id="L32">            dataBaseConfig.closeResultSet(rs);</span>
 <span class="fc" id="L33">            dataBaseConfig.closePreparedStatement(ps);</span>
-<span class="nc" id="L34">        }catch (Exception ex){</span>
+<span class="pc" id="L34">        }catch (Exception ex){</span>
 <span class="nc" id="L35">            logger.error(&quot;Error fetching next available slot&quot;,ex);</span>
         }finally {
 <span class="fc" id="L37">            dataBaseConfig.closeConnection(con);</span>
@@ -50,7 +50,7 @@ import com.parkit.parkingsystem.model.ParkingSpot;
 <span class="pc bpc" id="L50" title="1 of 2 branches missed.">            if(rs.next()){ available=rs.getBoolean(1);}</span>
 <span class="fc" id="L51">            dataBaseConfig.closeResultSet(rs);</span>
 <span class="fc" id="L52">            dataBaseConfig.closePreparedStatement(ps);</span>
-<span class="nc" id="L53">        } catch (ClassNotFoundException | SQLException e) {</span>
+<span class="pc" id="L53">        } catch (ClassNotFoundException | SQLException e) {</span>
 <span class="nc" id="L54">            logger.error(&quot;Error checking parking spot availability&quot;, e);</span>
         } finally {
 <span class="fc" id="L56">            dataBaseConfig.closeConnection(con);</span>
@@ -59,7 +59,7 @@ import com.parkit.parkingsystem.model.ParkingSpot;
     }
 
     public boolean updateParking(ParkingSpot parkingSpot){
-        //update the availability fo that parking slot
+        //update the availability for that parking slot
 <span class="fc" id="L63">        Connection con = null;</span>
         try {
 <span class="fc" id="L65">            con = dataBaseConfig.getConnection();</span>

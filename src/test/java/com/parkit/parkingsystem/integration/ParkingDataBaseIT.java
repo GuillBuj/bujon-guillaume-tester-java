@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -33,9 +31,7 @@ import com.parkit.parkingsystem.util.InputReaderUtil;
 
 @ExtendWith(MockitoExtension.class)
 public class ParkingDataBaseIT {
-    private static final Logger logger = LogManager.getLogger("ParkingDatabaseIT");
-
-
+   
     private static final DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
     private static ParkingSpotDAO parkingSpotDAO;
     private static TicketDAO ticketDAO;
@@ -57,6 +53,8 @@ public class ParkingDataBaseIT {
     private void setUpPerTest() throws Exception {
         when(inputReaderUtil.readSelection()).thenReturn(1);
         when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
+
+        dataBasePrepareService.clearDataBaseEntries();
     }
 
     @AfterAll
@@ -66,7 +64,6 @@ public class ParkingDataBaseIT {
 
     @Test
     public void testParkingACar(){
-        dataBasePrepareService.clearDataBaseEntries();
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
 
         int parkingSpotAvailableBefore = parkingSpotDAO.getNextAvailableSlot(ParkingType.CAR);
@@ -74,7 +71,7 @@ public class ParkingDataBaseIT {
 
         parkingService.processIncomingVehicle();
 
-        Ticket ticket =ticketDAO.getTicket("ABCDEF");
+        Ticket ticket = ticketDAO.getTicket("ABCDEF");
 
         assertNotNull(ticket);
         assertEquals("ABCDEF", ticket.getVehicleRegNumber());
@@ -85,7 +82,6 @@ public class ParkingDataBaseIT {
 
     @Test
     public void testParkingLotExit(){
-        dataBasePrepareService.clearDataBaseEntries();
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         parkingService.processIncomingVehicle();
         
@@ -108,7 +104,6 @@ public class ParkingDataBaseIT {
 
     @Test
     public void testParkingLotExitRecurringUser(){
-        dataBasePrepareService.clearDataBaseEntries();
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         
         Ticket previousTicket = new Ticket();

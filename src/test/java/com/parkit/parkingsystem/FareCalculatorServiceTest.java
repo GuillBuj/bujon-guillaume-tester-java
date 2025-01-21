@@ -42,6 +42,7 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
+        
         assertEquals(Fare.CAR_RATE_PER_HOUR, ticket.getPrice());
     }
 
@@ -56,6 +57,7 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
+        
         assertEquals(Fare.BIKE_RATE_PER_HOUR, ticket.getPrice());
     }
 
@@ -69,6 +71,7 @@ public class FareCalculatorServiceTest {
         ticket.setInTime(inTime);
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
+        
         assertThrows(NullPointerException.class, () -> fareCalculatorService.calculateFare(ticket));
     }
 
@@ -82,14 +85,14 @@ public class FareCalculatorServiceTest {
         ticket.setInTime(inTime);
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
+        
         assertThrows(IllegalArgumentException.class, () -> fareCalculatorService.calculateFare(ticket));
     }
 
     @Test
     public void calculateFareBikeWithLessThanOneHourParkingTime() {
         Date inTime = new Date();
-        inTime.setTime(System.currentTimeMillis() - (45 * 60 * 1000));// 45 minutes parking time should give 3/4th
-                                                                      // parking fare
+        inTime.setTime(System.currentTimeMillis() - (45 * 60 * 1000));
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE, false);
 
@@ -98,14 +101,14 @@ public class FareCalculatorServiceTest {
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
         BigDecimal priceBigDecimal = BigDecimal.valueOf(0.75 * Fare.BIKE_RATE_PER_HOUR).setScale(2,RoundingMode.HALF_DOWN);
+        
         assertEquals(priceBigDecimal, BigDecimal.valueOf(ticket.getPrice()));
     }
 
     @Test
     public void calculateFareCarWithLessThanOneHourParkingTime() {
         Date inTime = new Date();
-        inTime.setTime(System.currentTimeMillis() - (45 * 60 * 1000));// 45 minutes parking time should give 3/4th
-                                                                      // parking fare
+        inTime.setTime(System.currentTimeMillis() - (45 * 60 * 1000));
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
 
@@ -114,14 +117,14 @@ public class FareCalculatorServiceTest {
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
         BigDecimal priceBigDecimal = BigDecimal.valueOf(0.75 * Fare.CAR_RATE_PER_HOUR).setScale(2,RoundingMode.HALF_DOWN);
+        
         assertEquals(priceBigDecimal, BigDecimal.valueOf(ticket.getPrice()));
     }
 
     @Test
     public void calculateFareCarWithMoreThanADayParkingTime() {
         Date inTime = new Date();
-        inTime.setTime(System.currentTimeMillis() - (24 * 60 * 60 * 1000));// 24 hours parking time should give 24 *
-                                                                           // parking fare per hour
+        inTime.setTime(System.currentTimeMillis() - (24 * 60 * 60 * 1000));
         Date outTime = new Date();
         ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
 
@@ -129,6 +132,7 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
+        
         assertEquals((24 * Fare.CAR_RATE_PER_HOUR), ticket.getPrice());
     }
 
@@ -143,6 +147,7 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
+        
         assertEquals(0, ticket.getPrice());
     }
 
@@ -157,6 +162,7 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
+        
         assertEquals(0, ticket.getPrice());
     }
 
@@ -172,6 +178,7 @@ public class FareCalculatorServiceTest {
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket, true);
         BigDecimal priceBigDecimal = BigDecimal.valueOf(((Fare.CAR_RATE_PER_HOUR * (100 - Fare.DISCOUNT_PCT))/100)).setScale(2,RoundingMode.HALF_DOWN);
+        
         assertEquals(priceBigDecimal, BigDecimal.valueOf(ticket.getPrice()));
     }
 
@@ -187,6 +194,7 @@ public class FareCalculatorServiceTest {
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket, true);
         BigDecimal priceBigDecimal = BigDecimal.valueOf(((Fare.BIKE_RATE_PER_HOUR * (100 - Fare.DISCOUNT_PCT))/100)).setScale(2,RoundingMode.HALF_DOWN);
+
         assertEquals(priceBigDecimal, BigDecimal.valueOf(ticket.getPrice()));
     }
 }

@@ -15,17 +15,17 @@ import com.parkit.parkingsystem.model.Ticket;
 
     public void calculateFare(Ticket ticket, boolean discount) {
 <span class="pc bpc" id="L17" title="1 of 4 branches missed.">        if ((ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime()))) {</span>
-<span class="fc" id="L18">            throw new IllegalArgumentException(&quot;Out time provided is incorrect:&quot; + ticket.getOutTime().toString());</span>
+<span class="fc" id="L18">            throw new IllegalArgumentException</span>
+<span class="fc" id="L19">                (&quot;Out time provided is incorrect:&quot; + ticket.getOutTime().toString());</span>
         }
 
-<span class="fc" id="L21">        long inTimeMs = ticket.getInTime().getTime();</span>
-<span class="fc" id="L22">        long outTimeMs = ticket.getOutTime().getTime();</span>
-
+<span class="fc" id="L22">        long inTimeMs = ticket.getInTime().getTime();</span>
+<span class="fc" id="L23">        long outTimeMs = ticket.getOutTime().getTime();</span>
 <span class="fc" id="L24">        double durationH = (double) (outTimeMs - inTimeMs) / 3600000;</span>
 
 <span class="fc bfc" id="L26" title="All 2 branches covered.">        if (durationH &lt; 0.5) { // free for less than half an hour</span>
 <span class="fc" id="L27">            ticket.setPrice(0);</span>
-        } else {
+<span class="fc" id="L28">        } else {</span>
 <span class="fc bfc" id="L29" title="All 2 branches covered.">            double rate = discount ? (100 - Fare.DISCOUNT_PCT) / 100 : 1;</span>
 <span class="pc bpc" id="L30" title="1 of 3 branches missed.">            switch (ticket.getParkingSpot().getParkingType()) {</span>
                 case CAR: {
@@ -37,7 +37,7 @@ import com.parkit.parkingsystem.model.Ticket;
 <span class="fc" id="L37">                    break;</span>
                 }
                 default:
-<span class="nc" id="L40">                    throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
+<span class="nc" id="L40">                    throw new IllegalArgumentException(&quot;Unknown Parking Type&quot;);</span>
             }
 <span class="fc" id="L42">            logger.debug(&quot;Price before rounding: &quot; + ticket.getPrice());</span>
 <span class="fc" id="L43">            roundTicketPrice(ticket);</span>
